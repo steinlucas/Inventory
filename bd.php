@@ -1,9 +1,7 @@
 <?php
 
     function obterConexao() {
-        $conexao = mysqli_connect("localhost", "root", "", "inventory");
-
-        return $conexao;
+        return mysqli_connect("localhost", "root", "", "inventory");
     }
 
     function pesquisarListaItens() {
@@ -11,9 +9,8 @@
 
         $comandoSQL = "SELECT * FROM ATIVO ORDER BY CODIGO;";
         $query = mysqli_query($conexao, $comandoSQL);
-        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-        return $resultado;
+        return mysqli_fetch_all($query, MYSQLI_ASSOC);
     }
 
     function pesquisarItem($idItem) {
@@ -23,9 +20,32 @@
         $stmt = mysqli_prepare($conexao, $comandoSQL);
         mysqli_stmt_bind_param($stmt, "i", $idItem);
         mysqli_stmt_execute($stmt);
-        $resultado = mysqli_stmt_get_result($stmt);
 
-        return $resultado;
+        return mysqli_stmt_get_result($stmt);
+    }
+
+    function getMaiorCodigo() {
+        $conexao = obterConexao();
+
+        $comandoSQL = "SELECT MAX(CODIGO) + 1 FROM ATIVO;";
+        $query = mysqli_query($conexao, $comandoSQL);
+        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        
+        foreach ($resultado as $result) {
+            return $result;
+        }
+    }
+
+    function getSomaTotal() {
+        $conexao = obterConexao();
+
+        $comandoSQL = "SELECT SUM(VALOR) FROM ATIVO;";
+        $query = mysqli_query($conexao, $comandoSQL);
+        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
+        
+        foreach ($resultado as $result) {
+            return $result;
+        }
     }
 
     function excluirItem($idItem) {
@@ -35,9 +55,8 @@
         $stmt = mysqli_prepare($conexao, $comandoSQL);
         mysqli_stmt_bind_param($stmt, "i", $idItem);
         mysqli_stmt_execute($stmt);
-        $resultado = mysqli_stmt_get_result($stmt);
-                
-        return $resultado;
+
+        return mysqli_stmt_get_result($stmt);
     }
 
     function atualizarItem($idItemEditado, $codigo, $numeroSerie, $descricao, $valor) {
@@ -52,9 +71,8 @@
         $stmt = mysqli_prepare($conexao, $comandoSQL);
         mysqli_stmt_bind_param($stmt, "issii", $codigo, $numeroSerie, $descricao, $valor, $idItemEditado);
         mysqli_stmt_execute($stmt);
-        $resultado = mysqli_stmt_get_result($stmt);
-
-        return $resultado;
+        
+        return mysqli_stmt_get_result($stmt);
     }
 
     function cadastrarItem($codigo, $numeroSerie, $descricao, $valor) {
@@ -64,9 +82,8 @@
         $stmt = mysqli_prepare($conexao, $comandoSQL);
         mysqli_stmt_bind_param($stmt, "issi", $codigo, $numeroSerie, $descricao, $valor);
         mysqli_stmt_execute($stmt);
-        $resultado = mysqli_stmt_get_result($stmt);
-
-        return $resultado;
+        
+        return mysqli_stmt_get_result($stmt);
     }
     
 ?>

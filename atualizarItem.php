@@ -11,7 +11,7 @@
         <title>Inventory</title>
     </head>
 
-    <body>
+    <body style="background-color: #EEEEEE;">
     <div class="container">
         <br><br><h1>Atualizar item</h1><br>
         <form method="GET" action="atualiza.php">
