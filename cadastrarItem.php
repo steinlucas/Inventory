@@ -4,11 +4,7 @@
 
     include_once("cabecalho.php")
 ?>
-    
-    <div class="container">
-        <br><br><h1>Cadastro de item</h1>
-        <br>
-
+    <h1>Cadastrar item</h1><br>
         <form method="GET" action="cadastra.php">
             <div class="form-group">
                 <label for="codigo">Código</label>
@@ -41,6 +37,4 @@
             <a href="index.php" type="button" class="btn btn-outline-primary"><i class="material-icons">arrow_back</i></a>
             <input class="btn btn-success" type="submit" value="Cadastrar">
         </form>
-    </div><!--class="container"-->
-    
 <?php include_once("rodape.php"); ?>

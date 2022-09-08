@@ -1,5 +1,4 @@
 <?php
-
     function obterConexao() {
         return mysqli_connect("localhost", "root", "", "inventory");
     }
@@ -85,5 +84,4 @@
         
         return mysqli_stmt_get_result($stmt);
     }
-    
 ?>

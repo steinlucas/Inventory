@@ -1,12 +1,11 @@
 <?php
     include_once("bd.php");
 
-    if (isset($_GET['idItem']) == false ){
+    if (isset($_GET['idItem']) == false) {
         header('Location: index.php');
     }
-
-    $idItem = $_GET['idItem'];
     
-    $resultado = excluirItem($idItem);
+    excluirItem($_GET['idItem']);
+    
     header('Location: index.php');
 ?>
