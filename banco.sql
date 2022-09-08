@@ -1,0 +1,18 @@
+
+--
+-- Table structure for table `autor`
+--
+
+DROP TABLE IF EXISTS `ATIVO`;
+CREATE TABLE `ATIVO` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `CODIGO` INT NOT NULL,
+  `NUMERO_SERIE` VARCHAR(50),
+  `DESCRICAO` VARCHAR(100) NOT NULL,
+  `VALOR` INT NOT NULL,
+  PRIMARY KEY (`ID`)
+);
+--
+-- Dumping data for table `autor`
+--
+INSERT INTO `ATIVO` VALUES (1, 1, 'QHH5399', 'FORD KA 1.0 2017 VERMELHO', 35500),(2, 2, 'IYE2C39', 'Moto BMW G 310 R', 24000);
