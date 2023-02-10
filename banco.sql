@@ -15,4 +15,4 @@ CREATE TABLE `ATIVO` (
 --
 -- Dumping data for table `autor`
 --
-INSERT INTO `ATIVO` VALUES (1, 1, 'QHH5399', 'FORD KA 1.0 2017 VERMELHO', 35500),(2, 2, 'IYE2C39', 'Moto BMW G 310 R', 24000);
+INSERT INTO `ATIVO` VALUES (1, 1, 'ABC1234', 'Meu Modelo Vermelho', 35500),(2, 2, 'AAA1234', 'Minha Moto', 24000);
