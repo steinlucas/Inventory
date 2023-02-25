@@ -1,6 +1,6 @@
 
 --
--- Table structure for table `autor`
+-- Table structure for table `ATIVO`
 --
 
 DROP TABLE IF EXISTS `ATIVO`;
@@ -13,6 +13,6 @@ CREATE TABLE `ATIVO` (
   PRIMARY KEY (`ID`)
 );
 --
--- Dumping data for table `autor`
+-- Dumping data for table `ATIVO`
 --
 INSERT INTO `ATIVO` VALUES (1, 1, 'ABC1234', 'Meu Modelo Vermelho', 35500),(2, 2, 'AAA1234', 'Minha Moto', 24000);
