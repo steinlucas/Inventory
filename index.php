@@ -5,7 +5,10 @@
 
     include_once("cabecalho.php")
 ?>
-    <h1>Listagem de itens</h1><br>
+    <h1>Listagem de itens <a class="btn btn-primary" style="float: right;" href="cadastrarItem.php">Cadastrar item</a></h1>
+
+    <br><br>
+
     <form method="GET">
         <table class="table">
             <thead>
