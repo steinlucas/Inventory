@@ -7,9 +7,8 @@
     <h1>Atualizar item</h1><br>
     <form method="GET" action="atualiza.php">
 
-<?php
-    foreach($listaItens as $umItem) {
-?>
+    <?php foreach($listaItens as $umItem) { ?>
+
     <div class="form-group">
         <input type="hidden" class="form-control" id="idItemEditado" name="idItemEditado" value="<?php echo $umItem['ID'];?>">
     </div>
@@ -33,10 +32,12 @@
         <label for="valor">Valor</label>
         <input type="number" required class="form-control" id="valor" name="valor" value="<?php echo $umItem['VALOR'];?>">
     </div><br>
-<?php
-    }
-?>
+
+    <?php } ?>
+
     <a href="index.php" type="button" class="btn btn-outline-primary"><i class="material-icons">arrow_back</i></a>
+    
     <input class="btn btn-success" type="submit" value="Atualizar">
 </form>
+
 <?php include_once("rodape.php"); ?>

@@ -4,9 +4,11 @@
     if (isset($_GET['idItemEditado']) == false) {
         header('Location: index.php');
     }
+    
     if (isset($_GET['descricao']) == false) {
         header('Location: index.php');
     }
+
     if (isset($_GET['valor']) == false) {
         header('Location: index.php');
     }
