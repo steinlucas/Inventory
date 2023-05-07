@@ -3,6 +3,9 @@
 -- Table structure for table `ATIVO`
 --
 
+CREATE DATABASE  IF NOT EXISTS `inventory`;
+USE `inventory`;
+
 DROP TABLE IF EXISTS `ATIVO`;
 CREATE TABLE `ATIVO` (
   `ID` INT NOT NULL AUTO_INCREMENT,
