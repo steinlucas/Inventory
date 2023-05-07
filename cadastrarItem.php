@@ -1,25 +1,10 @@
 <?php
     include_once("bd.php");
-    $maiorCodigo = getMaiorCodigo();
-
     include_once("cabecalho.php")
 ?>
 
 <h1>Cadastrar item</h1><br>
 <form method="GET" action="cadastra.php">
-    <div class="form-group">
-        <label for="codigo">Código</label>
-        <input type="number" required class="form-control" id="codigo" name="codigo" value="<?php 
-            foreach($maiorCodigo as $resultado) {
-                if ($resultado != "") { // Se não tem registros no banco, tava imprimindo sem valor no front-end.
-                    echo $resultado;
-                } else {
-                    echo 1;
-                }
-            }
-        ?>">
-    </div><br>
-
     <div class="form-group">
         <label for="numeroSerie">Código de série</label>
         <input type="text" class="form-control" id="numeroSerie" name="numeroSerie">

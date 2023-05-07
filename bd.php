@@ -6,7 +6,7 @@
     function pesquisarListaItens() {
         $conexao = obterConexao();
 
-        $comandoSQL = "SELECT * FROM ATIVO ORDER BY CODIGO;";
+        $comandoSQL = "SELECT * FROM ATIVO ORDER BY ID;";
         $query = mysqli_query($conexao, $comandoSQL);
 
         return mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -21,18 +21,6 @@
         mysqli_stmt_execute($stmt);
 
         return mysqli_stmt_get_result($stmt);
-    }
-
-    function getMaiorCodigo() {
-        $conexao = obterConexao();
-
-        $comandoSQL = "SELECT MAX(CODIGO) + 1 FROM ATIVO;";
-        $query = mysqli_query($conexao, $comandoSQL);
-        $resultado = mysqli_fetch_all($query, MYSQLI_ASSOC);
-        
-        foreach ($resultado as $result) {
-            return $result;
-        }
     }
 
     function getSomaTotal() {
@@ -58,28 +46,27 @@
         return mysqli_stmt_get_result($stmt);
     }
 
-    function atualizarItem($idItemEditado, $codigo, $numeroSerie, $descricao, $valor) {
+    function atualizarItem($idItemEditado, $numeroSerie, $descricao, $valor) {
         $conexao = obterConexao();
 
         $comandoSQL = "UPDATE ATIVO
-                          SET CODIGO = ?,
-                              NUMERO_SERIE = ?,
+                          SET NUMERO_SERIE = ?,
                               DESCRICAO = ?,
                               VALOR = ?
                         WHERE ID = ?;";
         $stmt = mysqli_prepare($conexao, $comandoSQL);
-        mysqli_stmt_bind_param($stmt, "issii", $codigo, $numeroSerie, $descricao, $valor, $idItemEditado);
+        mysqli_stmt_bind_param($stmt, "ssii", $numeroSerie, $descricao, $valor, $idItemEditado);
         mysqli_stmt_execute($stmt);
         
         return mysqli_stmt_get_result($stmt);
     }
 
-    function cadastrarItem($codigo, $numeroSerie, $descricao, $valor) {
+    function cadastrarItem($numeroSerie, $descricao, $valor) {
         $conexao = obterConexao();
 
-        $comandoSQL = "INSERT INTO ATIVO (CODIGO, NUMERO_SERIE, DESCRICAO, VALOR) VALUES (?, ?, ?, ?);";
+        $comandoSQL = "INSERT INTO ATIVO (NUMERO_SERIE, DESCRICAO, VALOR) VALUES (?, ?, ?);";
         $stmt = mysqli_prepare($conexao, $comandoSQL);
-        mysqli_stmt_bind_param($stmt, "issi", $codigo, $numeroSerie, $descricao, $valor);
+        mysqli_stmt_bind_param($stmt, "ssi", $numeroSerie, $descricao, $valor);
         mysqli_stmt_execute($stmt);
         
         return mysqli_stmt_get_result($stmt);
